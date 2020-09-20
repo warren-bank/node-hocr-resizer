@@ -6,4 +6,5 @@ function resize_hocr {
   node "${DIR}/../../bin/hocr-resizer.js" "$@"
 }
 
-resize_hocr -w "1280" -i "${DIR}/1-high-res/8087_054.3B.hocr" -o "${DIR}/2-low-res/8087_054.3B.hocr"
+fname='8087_054.3B'
+resize_hocr -w "1280" -i "${DIR}/1-high-res/${fname}.hocr" -o "${DIR}/2-low-res/${fname}.hocr"
