@@ -1,4 +1,5 @@
 const process_argv = require('@warren-bank/node-process-argv')
+const path         = require('path')
 
 const argv_flags = {
   "--help":        {bool: true},
@@ -54,7 +55,23 @@ if (!argv_vals["--input"]) {
 }
 
 if (!argv_vals["--output"]) {
-  argv_vals["--output"] = argv_vals["--input"]
+  const args = [...process.argv]
+  let index  = -1
+
+  if (index < 0)
+    index = args.indexOf('--input')
+  if (index < 0)
+    index = args.indexOf('-i')
+
+  if ((index >= 0) && (index <= (process.argv.length - 2))) {
+    index++
+    argv_vals["--output"] = path.resolve(process.argv[index])
+  }
+  else {
+    // shouldn't be reachable..
+    console.log('ERROR: "output" is required')
+    process.exit(1)
+  }
 }
 
 module.exports = argv_vals

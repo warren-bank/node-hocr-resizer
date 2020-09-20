@@ -1,6 +1,6 @@
 {
   "name": "@warren-bank/node-hocr-resizer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "lib/process_cli.js",
   "description": "Command-line utility for resizing the coordinates in an hOCR (html-formatted ocr text) file.",
   "license": "GPL-2.0",
