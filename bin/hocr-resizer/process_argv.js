@@ -63,9 +63,9 @@ if (!argv_vals["--output"]) {
   if (index < 0)
     index = args.indexOf('-i')
 
-  if ((index >= 0) && (index <= (process.argv.length - 2))) {
+  if ((index >= 0) && (index <= (args.length - 2))) {
     index++
-    argv_vals["--output"] = path.resolve(process.argv[index])
+    argv_vals["--output"] = path.resolve(args[index])
   }
   else {
     // shouldn't be reachable..
